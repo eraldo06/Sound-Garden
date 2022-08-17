@@ -14,7 +14,7 @@ async function listarEventos (){
         <h2> ${evento.scheduled} </h2>
         <h4> ${evento.attractions} </h4>
         <p> ${evento.description} </p>
-        <a class="btn btn-primary">reservar ingresso</a>
+        <a class="btn btn-primary" data-toggle="modal" data-target="#add">reservar ingresso</a>
         </article>
         
         `
