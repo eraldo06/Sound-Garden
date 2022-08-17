@@ -3,7 +3,7 @@ const URL = 'https://xp41-soundgarden-api.herokuapp.com/events'
 async function listarEventos (){
     const response = await fetch(URL)
         let data = await response.json()
-        // data = data.slice(0,3)
+        data = data.slice(0,3)
         
 
     const tabela = document.querySelector('.eventos')
@@ -23,15 +23,3 @@ async function listarEventos (){
     
 }
 listarEventos();
-
-
-// fechar o formulario
-
-var buttonT = document.getElementById("butt");
-
-buttonT.addEventListener("click", function() {
-
-var containerB  = document.getElementById("container-css");
-containerB.classList.toggle("hide");    
-});
-
