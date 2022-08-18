@@ -8,11 +8,9 @@
     <title>Sound Garden - Eventos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="./css/teste.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <script src="./js/eventos.js" defer></script>
 </head>
 
 <body>
@@ -21,43 +19,13 @@
             <img src="img/Sound-logo (1).png" width="300" alt="">
         </a>
     </header>
-
-    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">FAZER RESERVA</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Nome:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">Email:</label>
-                  <input type="email" class="form-control" id="email"></input>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-primary">Enviar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
     <main>
         <section class="full">
             <div class="container text-center">
                 <h2>Todos os Eventos</h2>
             </div>
-            <div class="container d-flex justify-content-center align-items-center flex-wrap">
-                <div class="eventos"></div>
+            <div id="eventos" class="container d-flex justify-content-center align-items-center flex-wrap">
+
             </div>
         </section>
         <section class="full d-flex justify-content-center align-items-center"
@@ -84,44 +52,61 @@
                             quas incidunt, aliquid explicabo nesciunt hic nobis libero velit at reiciendis.</p>
                     </div>
                     <div class="col">
-                        <img src="img/music.svg" width="500px">
+                        <img src="img/music.svg" width="100%">
                     </div>
                 </div>
             </div>
         </section>
+        <!-- modal -->
+        <div id="formulario">
+            <div id="modal">
+                <div class="modal-header">
+                    <h5 id="titulo-modal" class="modal-title">Reserve seu ingresso para </h5>
+                    <button id="btn-x" type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <form id="form">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name">
+
+                    <label for="email"> E-mail</label>
+                    <input type="email" class="form-control" id="email">
+
+                    <label id="tickets" for="ingresso">Tickets restantes: </label>
+                    <input type="number" class="form-control" value=1 min="1" max="999" id="ingresso">
+
+                    <input type="hidden" name="id" id="inputId">
+                    <button type="button" id="btn-fechar" class="btn btn-secondary botao-modal ">Fechar</button>
+                    <button type="submit" class="btn btn-primary botao-modal ">Reservar ingresso</button>
+
+                </form>
+            </div>
+        </div>
 
     </main>
-    <div id="container-css">
-        <div class="conteudo-container">
-            <button id="butt" class="fechar">x</button>
-            <h3>Reserve seu ingresso</h3>
-            <form>
-                <input type="text" placeholder="Nome:">
-                <input type="email" placeholder="E-mail:">
-                <input type="button" value="Solicitar reserva">
-            </form>
-        </div>
-    </div>
-
-
     <footer>
         <div class="container d-flex justify-content-center align-items-center">
-            <a href="#">
+            <a href="./index.html">
                 <img src="img/Sound-logo-black (1).png" width="200px" alt="">
             </a>
             <nav>
                 <ul>
                     <li>
-                        <a href="eventos.html">eventos</a>
+                        <a href="./eventos.html" class="btn btn-primary">eventos</a>
                     </li>
                     <li>
-                        <a href="admin.html">painel administrativo</a>
+                        <a href="./admin.html" class="btn btn-primary">painel administrativo</a>
                     </li>
                 </ul>
             </nav>
+
         </div>
+
+
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
 </body>
-<script src="./js/eventos.js"></script>
+
 </html>
-<button></button>
